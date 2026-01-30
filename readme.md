@@ -1,6 +1,8 @@
 # Real-Time MBTA Data Pipeline  
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+A real-time data engineering project that ingests **live MBTA vehicle data**, runs it through an **ETL pipeline in SSIS**, and loads it into **SQL Server** to power **near real-time dashboards in Power BI**.
+
 ---
 
 ## 📚 Table of Contents  
@@ -12,20 +14,23 @@
 
 ## 🚌 What is this?
 
-This project is a real-time data pipeline that ingests live vehicle data from the Massachusetts Bay Transportation Authority (MBTA) API. It transforms and stores this data in **SQL Server** using **SSIS**, enabling **real-time dashboards in Power BI**.
+This project demonstrates how to build a production-style pipeline for **streaming public transit data**:
 
-Designed with OLTP best practices and historical tracking in mind, this pipeline showcases how public transport data can be processed and visualized in near real-time.
+- Continuously pulls live vehicle data from the **MBTA API**  
+- Cleans, transforms, and loads data into **SQL Server** using **SSIS**  
+- Structures data for **OLTP-style writes** while preserving **historical tracking** for analytics  
+- Exposes the data for **Power BI dashboards** (for real-time and historical insights)
 
-It’s a demo of data engineering skills — API integration, ETL design, SQL Server optimization, and real-time analytics.
+It showcases skills in **API integration, ETL design, SQL performance, and real-time analytics**.
 
+---
 ## ⚙️ Getting Started  
-This section will help you set up the project locally and run it end-to-end.
 
 ### Requirements
 - SQL Server 2019+  
 - SSIS (SQL Server Integration Services)  
 - Power BI Desktop  
-- Python 3.8+ (optional, if using for API testing)  
+- Python 3.8+ (optional, for API testing / exploration)  
 - MBTA API Key (free from [MBTA Developers Portal](https://api-v3.mbta.com))
 
 ### Installation
@@ -35,19 +40,19 @@ This section will help you set up the project locally and run it end-to-end.
    cd mbta-data-pipeline
 2. Open the SSIS project in Visual Studio and deploy the ETL package.
 
-3. Set up SQL Server tables using the provided schema under sql/schema.sql.
+3. Set up SQL Server tables using the provided schema under `sql/schema.sql`.
 
 4. Run the scheduled package or trigger it manually to start data ingestion.
 
-5. Open the Power BI file under dashboards/ to view live MBTA vehicle data visualizations. (coming soon)
+5. Open the Power BI report under `dashboards/` (coming soon) to visualize live MBTA data.
 
 ## 🧪 Usage  
-This is a real-time analytics project designed for educational and demo purposes. Once deployed, the system will continuously ingest, transform, and display live transit vehicle data from the Boston area.
+Once deployed, the pipeline will continuously **ingest, transform, and load** live Boston-area transit data.
 
-You can monitor:
-- Active vehicle positions  
-- Route-level delays  
-- Historical vehicle tracking  
+Example insights:
+- Active vehicle positions and routes
+- Route-level delays and performance trends
+- Historical vehicle tracks over time
 
-Feel free to remix or extend the pipeline to work with other transit APIs or databases!
+You can adapt this pattern to other transit APIs or domains to practice **real-time analytics and data engineering**.
 
